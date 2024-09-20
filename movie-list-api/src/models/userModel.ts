@@ -12,8 +12,8 @@ const userSchema: Schema = new Schema({
     password: { type: String, required: true },
 });
 
-userSchema.methods.comparePassword = function(userPassword: string): Promise<boolean>{
+userSchema.methods.comparePassword = function (userPassword: string): Promise<boolean> {
     return bcrypt.compare(userPassword, this.password);
-}
+  };
 
 export const User = mongoose.model<IUser>('User', userSchema);
