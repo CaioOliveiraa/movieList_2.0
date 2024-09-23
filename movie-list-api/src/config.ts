@@ -1,5 +1,4 @@
 import dotenv from 'dotenv'
-import { deflate } from 'zlib';
 
 dotenv.config()
 
