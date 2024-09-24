@@ -3,7 +3,7 @@ import mongoose, {Document, Schema} from 'mongoose';
 export interface IMovie extends Document {
     title: string;
     description: string;
-    type: "movie" | "series";
+    type: "movie" | "series" | "anime";
     userId: string;
 }
 
