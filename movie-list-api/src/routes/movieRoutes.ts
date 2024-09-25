@@ -5,6 +5,6 @@ import { authMiddleware } from '../middleware/authMiddleware';
 const router = Router();
 
 router.post('/add', authMiddleware, addMovie);
-router.post('/', authMiddleware, getMovies);
+router.get('/', authMiddleware, getMovies);
 
 export default router;

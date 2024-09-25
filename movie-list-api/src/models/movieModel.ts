@@ -10,6 +10,7 @@ export interface IMovie extends Document {
 const movieSchema: Schema = new Schema({
     title: {type: String, required: true, unique: true},
     description: {type: String, required: false},
+    type: { type: String, enum: ['movie', 'series'], required: true },
     userId: {type: Schema.Types.ObjectId, ref: 'User', required: true}
 })
 

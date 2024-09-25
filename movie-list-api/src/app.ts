@@ -5,6 +5,7 @@ import authRoutes from './routes/authRoutes';
 import movieRoutes from './routes/movieRoutes';
 import { MONGO_URI } from './config';
 
+
 const app = express();
 
 app.use(cors());
