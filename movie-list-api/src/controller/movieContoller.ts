@@ -10,7 +10,7 @@ export const addMovie = async (req: Request, res: Response) => {
         return res.status(201).json(newMovie)
 
     } catch (error) {
-        return res.status(400).json({ message: 'Erro ao adicionar filme' })
+        return res.status(400).json({ message: 'Erro ao adicionar filme' });
     }
 }
 
@@ -18,12 +18,13 @@ export const getMovies = async (req: Request, res: Response) => {
     const userId = req.userId;
 
     try {
-        const movies = await Movie.find({userId, type: 'movie'})
-        const series = await Movie.find({userId, type: 'series'})
-        const animes = await Movie.find({userId, type: 'anime'})
+        const movies = await Movie.find({userId, type: 'movie'});
+        const series = await Movie.find({userId, type: 'series'});
+        const animes = await Movie.find({userId, type: 'anime'});
+        const documentaries = await Movie.find({userId, type: 'documentary'});
 
-        return res.status(200).json({movies, series, animes})
+        return res.status(200).json({movies, series, animes, documentaries});
     } catch (error) {
-        return res.status(400).json({message: 'Erro ao buscar conteudos'})
+        return res.status(400).json({message: 'Erro ao buscar conteudos'});
     }
 }
