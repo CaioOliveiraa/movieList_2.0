@@ -56,3 +56,5 @@ export const getMovies = async () => {
         throw new Error('Erro ao buscar mídias')
     }
 };
+
+export default api;
