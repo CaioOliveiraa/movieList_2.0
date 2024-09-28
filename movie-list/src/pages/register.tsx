@@ -1,52 +1,22 @@
+// src/pages/RegisterPage.tsx
 import React, { useState } from 'react';
 import { registerUser } from '../services/api';
+import AuthForm from '../components/authForm';
 
-const Register: React.FC = () => {
-    const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
-    const [message, setMessage] = useState('');
-    const [isError, setIsError] = useState(false);
+const RegisterPage: React.FC = () => {
+  const [errorMessage, setErrorMessage] = useState('');
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            await registerUser(name, password);
-            setMessage('Usuário registrado com sucesso');
-            setIsError(false);
-            setTimeout(() => {
-                window.location.href = '/login';
-            }, 2000);
-        } catch (error) {
-            setMessage('Erro ao registrar usuário');
-            setIsError(true);
-        }
-    };
+  const handleRegister = async (name: string, password: string) => {
+    try {
+      await registerUser(name, password);
+    } catch (error) {
+      setErrorMessage('Falha ao registrar. Tente novamente.');
+    }
+  };
 
-    return (
-        <div>
-          <h2>Registrar</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Nome"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Senha"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit">Registrar</button>
-          </form>
-          {message && (
-            <p style={{ color: isError ? 'red' : 'green' }}>{message}</p>
-          )}
-        </div>
-      );
+  return (
+    <AuthForm title="Registrar" onSubmit={handleRegister} errorMessage={errorMessage} />
+  );
 };
 
-export default Register;
+export default RegisterPage;
