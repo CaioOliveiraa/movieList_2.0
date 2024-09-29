@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { addMovie } from '../services/api';
-import './MovieForm.css';
+import './movieForm.css';
 
 const MovieForm: React.FC<{ onMovieAdded: () => void }> = ({ onMovieAdded }) => {
     const [title, setTitle] = useState('');
@@ -15,9 +15,9 @@ const MovieForm: React.FC<{ onMovieAdded: () => void }> = ({ onMovieAdded }) => 
             await addMovie(title, description, type);
             setTitle('');
             setDescription('');
-            onMovieAdded();
-            setMessage('Filme adicionado com sucesso');
+            setMessage('Mídia adicionada com sucesso');
             setIsError(false);
+            onMovieAdded(); // Atualiza a lista de mídias
         } catch (error) {
             setMessage('Erro ao adicionar mídia');
             setIsError(true);
@@ -39,13 +39,17 @@ const MovieForm: React.FC<{ onMovieAdded: () => void }> = ({ onMovieAdded }) => 
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
             />
-            <select value={type} onChange={(e) => setType(e.target.value as 'movie' | 'series' | 'anime' | 'documentary')} required>
+            <select
+                value={type}
+                onChange={(e) => setType(e.target.value as 'movie' | 'series' | 'anime' | 'documentary')}
+                required
+            >
                 <option value="movie">Filme</option>
                 <option value="series">Série</option>
                 <option value="anime">Anime</option>
                 <option value="documentary">Documentário</option>
             </select>
-            <button type="submit">Adicionar Filme</button>
+            <button type="submit">Adicionar Mídia</button>
             {message && <p className={isError ? 'error' : 'success'}>{message}</p>}
         </form>
     );

@@ -1,26 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { getMovies } from '../services/api';
-import './MovieList.css';
+import React from 'react';
+import './movieList.css';
 
 interface Movie {
     id: string;
     title: string;
     description: string;
     type: 'movie' | 'series' | 'anime' | 'documentary';
-};
+}
 
-const MovieList: React.FC = () => {
-    const [movies, setMovies] = useState<Movie[]>([]);
+interface MovieListProps {
+    movies: Movie[];
+}
 
-    useEffect(() => {
-        const fetchMovies = async () => {
-            const moviesData = await getMovies();
-            setMovies(moviesData);
-        };
-
-        fetchMovies();
-    }, []);
-
+const MovieList: React.FC<MovieListProps> = ({ movies }) => {
     const filterByType = (type: Movie['type']) => movies.filter(movie => movie.type === type);
 
     return (
@@ -34,6 +26,7 @@ const MovieList: React.FC = () => {
                 </ul>
             </nav>
 
+            {/* Seção de Filmes */}
             <section id="movies" className="media-section">
                 <h3 className="section-title">Filmes</h3>
                 {filterByType('movie').length === 0 ? (
@@ -50,10 +43,11 @@ const MovieList: React.FC = () => {
                 )}
             </section>
 
+            {/* Seção de Séries */}
             <section id="series" className="media-section">
                 <h3 className="section-title">Séries</h3>
                 {filterByType('series').length === 0 ? (
-                    <p>Nenhuma serie adicionada ainda.</p>
+                    <p>Nenhuma série adicionada ainda.</p>
                 ) : (
                     <div className="media-grid">
                         {filterByType('series').map((movie) => (
@@ -66,6 +60,7 @@ const MovieList: React.FC = () => {
                 )}
             </section>
 
+            {/* Seção de Animes */}
             <section id="anime" className="media-section">
                 <h3 className="section-title">Animes</h3>
                 {filterByType('anime').length === 0 ? (
@@ -82,6 +77,7 @@ const MovieList: React.FC = () => {
                 )}
             </section>
 
+            {/* Seção de Documentários */}
             <section id="documentary" className="media-section">
                 <h3 className="section-title">Documentários</h3>
                 {filterByType('documentary').length === 0 ? (

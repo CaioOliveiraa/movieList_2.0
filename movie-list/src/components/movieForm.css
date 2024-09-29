@@ -1,25 +1,28 @@
-form {
-    display: flex;
-    flex-direction: column;
+.movie-form {
     margin-bottom: 20px;
 }
 
-input[type="text"], select {
-    padding: 10px;
-    margin: 5px 0;
+.movie-form input,
+.movie-form select {
+    margin-right: 10px;
+    padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
-button {
-    padding: 10px;
+.movie-form button {
+    padding: 8px 12px;
     background-color: #28a745;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-button:hover {
+.movie-form button:hover {
     background-color: #218838;
+}
+
+.movie-form p {
+    margin-top: 10px;
 }

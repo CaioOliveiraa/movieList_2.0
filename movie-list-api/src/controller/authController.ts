@@ -29,7 +29,7 @@ export const loginUser = async (req: Request, res: Response) => {
         }
 
         const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
-        return res.status(201).json(token);
+        return res.status(201).json({ token });
     } catch (error) {
         return res.status(400).json({ error: 'Erro ao realizar login' });
     }

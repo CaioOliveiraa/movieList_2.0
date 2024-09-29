@@ -18,6 +18,7 @@ export const loginUser = async (name: string, password: string) => {
         const response = await api.post('/auth/login', { name, password });
         const token = response.data.token;
         localStorage.setItem('token', token);
+        console.log('Token recebido:', token);
         return token;
     } catch (error) {
         throw new Error('Erro ao fazer login');
@@ -32,7 +33,7 @@ export const addMovie = async (title: string, description: string, type: string)
             { title, description, type },
             {
                 headers: {
-                    Authorization: `Beaver ${token}`
+                    Authorization: `Bearer ${token}`
                 }
             }
         );
@@ -48,13 +49,15 @@ export const getMovies = async () => {
         const token = localStorage.getItem('token');
         const response = await api.get('/movies', {
             headers: {
-                Authorization: `Beaver ${token}`,
+                Authorization: `Bearer ${token}`,
             },
         });
         return response.data;
     } catch (error) {
-        throw new Error('Erro ao buscar mídias')
+        throw new Error('Erro ao buscar mídias');
     }
 };
+
+
 
 export default api;

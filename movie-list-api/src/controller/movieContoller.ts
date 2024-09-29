@@ -18,13 +18,11 @@ export const getMovies = async (req: Request, res: Response) => {
     const userId = req.userId;
 
     try {
-        const movies = await Movie.find({userId, type: 'movie'});
-        const series = await Movie.find({userId, type: 'series'});
-        const animes = await Movie.find({userId, type: 'anime'});
-        const documentaries = await Movie.find({userId, type: 'documentary'});
 
-        return res.status(200).json({movies, series, animes, documentaries});
+        const allMedia = await Movie.find({ userId });
+
+        return res.status(200).json(allMedia);
     } catch (error) {
-        return res.status(400).json({message: 'Erro ao buscar conteudos'});
+        return res.status(400).json({ message: 'Erro ao buscar conteúdos' });
     }
-}
+};

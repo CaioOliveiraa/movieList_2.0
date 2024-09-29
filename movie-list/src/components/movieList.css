@@ -1,72 +1,34 @@
-.menu {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu ul li {
-    display: inline;
-    margin-right: 15px;
-}
-
-.menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-}
-
-.menu ul li a:hover {
-    background-color: #555;
-    border-radius: 5px;
+.movie-list {
+    margin-top: 20px;
 }
 
 .media-section {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+    margin-bottom: 30px;
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 1.5em;
     margin-bottom: 10px;
-    color: #333;
 }
 
 .media-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
 .media-card {
-    background-color: white;
     padding: 15px;
+    background-color: #f4f4f4;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .media-card h4 {
-    font-size: 18px;
+    margin-top: 0;
     margin-bottom: 10px;
 }
 
 .media-card p {
-    font-size: 14px;
-    color: #666;
-}
-
-.media-card:hover {
-    transform: scale(1.05);
+    margin-bottom: 0;
 }
