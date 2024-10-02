@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import MovieForm from '../components/movieForm';
-import MovieList from '../components/movieList';
-import { getMovies } from '../services/api';
-
+import React, { useState, useEffect } from 'react'
+import MovieForm from '../components/movieForm'
+import { getMovies } from '../services/api'
 
 interface Movie {
     id: string;
@@ -11,10 +9,10 @@ interface Movie {
     type: 'movie' | 'series' | 'anime' | 'documentary';
 }
 
-const MoviesPage: React.FC = () => {
+const AddPage: React.FC = () => {
+
     const [movies, setMovies] = useState<Movie[]>([]);
 
-    // Função para buscar os filmes do banco de dados
     const fetchMovies = async () => {
         try {
             const moviesData = await getMovies();
@@ -39,13 +37,11 @@ const MoviesPage: React.FC = () => {
         fetchMovies(); // Atualiza a lista de filmes quando uma nova mídia é adicionada
     };
 
-    return (
-        <div className="movies-page">
-            <h2>Seus Filmes</h2>
-            {/* <MovieForm onMovieAdded={handleMovieAdded} /> */}
-            <MovieList movies={movies} />
-        </div>
-    );
-};
 
-export default MoviesPage;
+    return (
+        <MovieForm onMovieAdded={handleMovieAdded}></MovieForm>
+    )
+}
+
+
+export default AddPage;

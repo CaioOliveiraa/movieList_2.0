@@ -1,14 +1,14 @@
 import React from 'react'
 import './styles/homePage.css'
 
-const homePage: React.FC = () => {
+const HomePage: React.FC = () => {
 
     return(
         <div className='home-page'>
             <h1>CINEMINHA</h1>
             <div>
                 <a href="/movies">QUERO ASSISTIR</a>
-                <a href="/add">QUERO ADICIONAR</a>
+                <a href="/addMovie">QUERO ADICIONAR</a>
             </div>
         </div>
 
@@ -17,4 +17,4 @@ const homePage: React.FC = () => {
 }
 
 
-export default homePage;
+export default HomePage;

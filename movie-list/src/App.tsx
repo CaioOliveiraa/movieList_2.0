@@ -4,6 +4,8 @@ import LoginPage from './pages/login';
 import RegisterPage from './pages/register';
 import MoviePage from './pages/moviePage';
 import HomePage from './pages/homePage'
+import AddPage from './pages/addPage'
+
 import './App.css';
 
 const App: React.FC = () => {
@@ -15,12 +17,18 @@ const App: React.FC = () => {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
-            path='/home' 
+            path='/home'
             element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
           <Route
             path="/movies"
             element={isAuthenticated ? <MoviePage /> : <Navigate to="/login" />}
           />
+          <Route
+            path='/addMovie'
+            element={isAuthenticated ? <AddPage /> : <Navigate to="/login" />}
+          />
+
+
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </div>
