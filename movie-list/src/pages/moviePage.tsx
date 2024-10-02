@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MovieForm from '../components/movieForm';
 import MovieList from '../components/movieList';
 import { getMovies } from '../services/api';
-import './styles/moviePage.css';
+
 
 interface Movie {
     id: string;

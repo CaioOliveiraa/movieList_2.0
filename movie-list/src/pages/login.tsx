@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
     const handleLogin = async (name: string, password: string) => {
         try {
             await loginUser(name, password);
-            navigate('/movies')
+            navigate('/home')
         } catch (error) {
             setErrorMessage('Falha ao fazer login. Verifique seus dados.');
         }

@@ -32,3 +32,18 @@
 .media-card p {
     margin-bottom: 0;
 }
+
+.menu {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.menu ul {
+    display: flex;
+    gap: 30px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: blueviolet;
+}

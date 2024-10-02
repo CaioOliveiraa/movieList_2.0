@@ -26,7 +26,6 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                 </ul>
             </nav>
 
-            {/* Seção de Filmes */}
             <section id="movies" className="media-section">
                 <h3 className="section-title">Filmes</h3>
                 {filterByType('movie').length === 0 ? (
@@ -37,13 +36,15 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                             <div key={movie.id} className="media-card">
                                 <h4>{movie.title}</h4>
                                 <p>{movie.description}</p>
+                                <button>Editar</button>
+                                <button>Visto</button>
+                                <button>Apagar</button>
                             </div>
                         ))}
                     </div>
                 )}
             </section>
 
-            {/* Seção de Séries */}
             <section id="series" className="media-section">
                 <h3 className="section-title">Séries</h3>
                 {filterByType('series').length === 0 ? (
@@ -54,13 +55,13 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                             <div key={movie.id} className="media-card">
                                 <h4>{movie.title}</h4>
                                 <p>{movie.description}</p>
+                                
                             </div>
                         ))}
                     </div>
                 )}
             </section>
 
-            {/* Seção de Animes */}
             <section id="anime" className="media-section">
                 <h3 className="section-title">Animes</h3>
                 {filterByType('anime').length === 0 ? (
@@ -77,7 +78,6 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                 )}
             </section>
 
-            {/* Seção de Documentários */}
             <section id="documentary" className="media-section">
                 <h3 className="section-title">Documentários</h3>
                 {filterByType('documentary').length === 0 ? (
