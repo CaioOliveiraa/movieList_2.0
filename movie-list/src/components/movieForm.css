@@ -1,28 +1,155 @@
-.movie-form {
+/* Estilos globais */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; 
+    font-family: Arial, sans-serif;
+    color: #fff; 
+}
+
+.movie-form-page {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container principal com borda iluminada */
+.container {
+    border: 30px solid #a51723; /* Borda vermelha */
+    padding: 20px; /* Padding para espaçamento interno */
+    border-radius: 10px;
+    background-color: #f5d7ae; /* Cor de fundo do container */
+    box-shadow: 0 0 25px #ffcc00; 
+    position: relative; /* Necessário para o pseudo-elemento */
+    box-sizing: border-box; /* Garante que o padding e border não aumentem a largura total */
+}
+
+/* Bolinhas ao longo da borda */
+.container::before {
+    content: ""; 
+    position: absolute; 
+    top: -10px; 
+    left: -10px; 
+    right: -10px; 
+    bottom: -10px; 
+    border-radius: 10px; 
+    background-image: 
+        radial-gradient(circle, yellow 10%, transparent 11%),
+        radial-gradient(circle, yellow 10%, transparent 11%),
+        radial-gradient(circle, yellow 10%, transparent 11%),
+        radial-gradient(circle, yellow 10%, transparent 11%); /* Bolinhas amarelas */
+    background-repeat: no-repeat; 
+    background-size: 20px 20px; 
+    background-position: 
+        top left, 
+        top right, 
+        bottom left, 
+        bottom right; 
+    z-index: -1; 
+}
+
+/* Títulos de seções (Gênero, Nome, Tipo) */
+h2 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+/* Inputs de texto */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #000;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* Grupo de botões de seleção */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-.movie-form input,
-.movie-form select {
-    margin-right: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.movie-form button {
-    padding: 8px 12px;
-    background-color: #28a745;
+/* Botões redondos */
+.button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #a51723;
     color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-.movie-form button:hover {
-    background-color: #218838;
+.button:hover {
+    background-color: #a51723; 
 }
 
-.movie-form p {
-    margin-top: 10px;
+.button.selected {
+    background-color: #a51723;
+}
+
+/* Botão Adicionar Mídia */
+.add-button-container {
+    text-align: center;
+}
+
+.add-button {
+    background-color: #a51723;
+    color: white;
+    border: 2px solid #a51723;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.add-button:hover {
+    background-color: #000; 
+}
+
+/* Mensagens de sucesso ou erro */
+.success {
+    color: green;
+    font-size: 1rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-size: 1rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .movie-form {
+        width: 80%;
+    }
+
+    .button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .add-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
 }

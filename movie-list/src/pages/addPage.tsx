@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import MovieForm from '../components/movieForm'
-import { getMovies } from '../services/api'
+import React, { useState, useEffect } from 'react';
+import MovieForm from '../components/movieForm';
+import { getMovies } from '../services/api';
 
 interface Movie {
     id: string;
@@ -10,7 +10,6 @@ interface Movie {
 }
 
 const AddPage: React.FC = () => {
-
     const [movies, setMovies] = useState<Movie[]>([]);
 
     const fetchMovies = async () => {
@@ -37,11 +36,9 @@ const AddPage: React.FC = () => {
         fetchMovies(); // Atualiza a lista de filmes quando uma nova mídia é adicionada
     };
 
-
     return (
-        <MovieForm onMovieAdded={handleMovieAdded}></MovieForm>
-    )
+        <MovieForm onMovieAdded={handleMovieAdded} /> // Passando a função para o componente
+    );
 }
-
 
 export default AddPage;
