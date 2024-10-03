@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
     return(
         <div className='home-page'>
             <h1>CINEMINHA</h1>
-            <div>
+            <div className='button-container'>
                 <a href="/movies">QUERO ASSISTIR</a>
                 <a href="/addMovie">QUERO ADICIONAR</a>
             </div>
