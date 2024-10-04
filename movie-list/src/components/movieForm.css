@@ -12,98 +12,134 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; /* O contêiner pai terá position: relative */
 }
 
-/* Container principal com borda iluminada */
+/* Formulário */
 .container {
-    border: 30px solid #a51723; /* Borda vermelha */
-    padding: 20px; /* Padding para espaçamento interno */
+    padding: 20px;
     border-radius: 10px;
-    background-color: #f5d7ae; /* Cor de fundo do container */
-    box-shadow: 0 0 25px #ffcc00; 
-    position: relative; /* Necessário para o pseudo-elemento */
-    box-sizing: border-box; /* Garante que o padding e border não aumentem a largura total */
+    height: 500px;
+    background-color: #f5d7ae;
+    position: relative;
+    z-index: 1; 
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Bolinhas ao longo da borda */
-.container::before {
-    content: ""; 
+/* Quadrado vermelho */
+.red-square {
+    position: absolute; /* Agora o quadrado é absoluto em relação ao contêiner pai */
+    width: 525px;
+    height: 630px;
+    background-color: #a51723;
+    border-radius: 20px;
+    border: 3px solid rgba(255, 255, 0, 0.6);
+    box-shadow: 0 0 50px rgba(255, 255, 0, 0.5); 
+    top: 42.5%; 
+    left: 50%; /* Ajuste conforme o layout desejado */
+    transform: translate(-50%, -50%);
+    z-index: -2; /* Colocar o quadrado atrás das bolinhas */
+}
+
+/* Estilos para cada bolinha */
+.bulb {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
     position: absolute; 
-    top: -10px; 
-    left: -10px; 
-    right: -10px; 
-    bottom: -10px; 
-    border-radius: 10px; 
-    background-image: 
-        radial-gradient(circle, yellow 10%, transparent 11%),
-        radial-gradient(circle, yellow 10%, transparent 11%),
-        radial-gradient(circle, yellow 10%, transparent 11%),
-        radial-gradient(circle, yellow 10%, transparent 11%); /* Bolinhas amarelas */
-    background-repeat: no-repeat; 
-    background-size: 20px 20px; 
-    background-position: 
-        top left, 
-        top right, 
-        bottom left, 
-        bottom right; 
     z-index: -1; 
 }
 
-/* Títulos de seções (Gênero, Nome, Tipo) */
-h2 {
-    font-size: 1.2rem;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #000;
+/* Posicionando as bolinhas ao redor do quadrado */
+/* Bolinhas no topo */
+.bulb:nth-child(1) { top: 11.5%; left: 24%; }   /* Primeira bolinha */
+.bulb:nth-child(2) { top: 11.5%; left: calc(23.5% + 6.31% * 1); } /* Segunda bolinha */
+.bulb:nth-child(3) { top: 11.5%; left: calc(23.5% + 6.31% * 2); } /* Terceira bolinha */
+.bulb:nth-child(4) { top: 11.5%; left: calc(23.5% + 6.31% * 3); } /* Quarta bolinha */
+.bulb:nth-child(5) { top: 11.5%; left: calc(23.5% + 6.31% * 4); } /* Quinta bolinha */
+.bulb:nth-child(6) { top: 11.5%; left: calc(23.5% + 6.31% * 5); } /* Sexta bolinha */
+.bulb:nth-child(7) { top: 11.5%; left: calc(23.5% + 6.31% * 6); } /* Sétima bolinha */
+.bulb:nth-child(8) { top: 11.5%; left: calc(23.5% + 6.31% * 7); } /* Oitava bolinha */
+.bulb:nth-child(9) { top: 11.5%; left: 74%; }     /* Última bolinha */
+
+/* Bolinhas na direita (com top distribuído igualmente) */
+.bulb:nth-child(10) { top: 11.5%; left: 74%; }    /* Primeira bolinha */
+.bulb:nth-child(11) { top: calc(11.5% + 6% * 1); left: 74%; }  /* Segunda bolinha */
+.bulb:nth-child(12) { top: calc(11.5% + 6% * 2); left: 74%; }  /* Terceira bolinha */
+.bulb:nth-child(13) { top: calc(11.5% + 6% * 3); left: 74%; }  /* Quarta bolinha */
+.bulb:nth-child(14) { top: calc(11.5% + 6% * 4); left: 74%; }  /* Quinta bolinha */
+.bulb:nth-child(15) { top: calc(11.5% + 6% * 5); left: 74%; }  /* Sexta bolinha */
+.bulb:nth-child(16) { top: calc(11.5% + 6% * 6); left: 74%; }  /* Sétima bolinha */
+.bulb:nth-child(17) { top: calc(11.5% + 6% * 7); left: 74%; }  /* Oitava bolinha */
+.bulb:nth-child(18) { top: calc(11.5% + 6% * 8); left: 74%; }  /* Nona bolinha */
+.bulb:nth-child(19) { top: calc(11.5% + 6% * 9); left: 74%; }  /* Décima bolinha */
+.bulb:nth-child(20) { top: 71.5%; left: 74%; }    /* Última bolinha */
+
+
+/* Bolinhas na parte inferior (com left distribuído igualmente para 9 bolinhas) */
+.bulb:nth-child(21) { top: 71.5%; left: 24%; }    /* Primeira bolinha */
+.bulb:nth-child(22) { top: 71.5%; left: calc(23.5% + 6.31% * 1); }  /* Segunda bolinha */
+.bulb:nth-child(23) { top: 71.5%; left: calc(23.5% + 6.31% * 2); }  /* Terceira bolinha */
+.bulb:nth-child(24) { top: 71.5%; left: calc(23.5% + 6.31% * 3); }  /* Quarta bolinha */
+.bulb:nth-child(25) { top: 71.5%; left: calc(23.5% + 6.31% * 4); }  /* Quinta bolinha */
+.bulb:nth-child(26) { top: 71.5%; left: calc(23.5% + 6.31% * 5); }  /* Sexta bolinha */
+.bulb:nth-child(27) { top: 71.5%; left: calc(23.5% + 6.31% * 6); }  /* Sétima bolinha */
+.bulb:nth-child(28) { top: 71.5%; left: calc(23.5% + 6.31% * 7); }  /* Oitava bolinha */
+.bulb:nth-child(29) { top: 71.5%; left: 74%; }      /* Última bolinha */
+
+
+
+.bulb:nth-child(30) { top: 11.5%; left: 24%; }    /* Primeira bolinha */
+.bulb:nth-child(31) { top: calc(11.5% + 6% * 1); left: 24%; }  /* Segunda bolinha */
+.bulb:nth-child(32) { top: calc(11.5% + 6% * 2); left: 24%; }  /* Terceira bolinha */
+.bulb:nth-child(33) { top: calc(11.5% + 6% * 3); left: 24%; }  /* Quarta bolinha */
+.bulb:nth-child(34) { top: calc(11.5% + 6% * 4); left: 24%; }  /* Quinta bolinha */
+.bulb:nth-child(35) { top: calc(11.5% + 6% * 5); left: 24%; }  /* Sexta bolinha */
+.bulb:nth-child(36) { top: calc(11.5% + 6% * 6); left: 24%; }  /* Sétima bolinha */
+.bulb:nth-child(37) { top: calc(11.5% + 6% * 7); left: 24%; }  /* Oitava bolinha */
+.bulb:nth-child(38) { top: calc(11.5% + 6% * 8); left: 24%; }  /* Nona bolinha */
+.bulb:nth-child(39) { top: calc(11.5% + 6% * 9); left: 24%; }  /* Décima bolinha */
+.bulb:nth-child(40) { top: 71.5%; left: 24%; }    /* Última bolinha */
+
+
+
+/* Efeito de brilho */
+.bulb:hover {
+    animation: pulse 1.5s infinite;
 }
 
-/* Inputs de texto */
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
-    background-color: #fff;
-    color: #000;
-    box-sizing: border-box;
-    font-size: 1rem;
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+    }
 }
 
-/* Grupo de botões de seleção */
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-}
 
-/* Botões redondos */
-.button {
+/* Estilo dos botões de seleção de tipo */
+.buttons .button {
     padding: 10px 20px;
-    border-radius: 20px;
+    margin: 5px;
     background-color: #a51723;
-    color: white;
+    color: #fff;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
 }
 
-.button:hover {
-    background-color: #a51723; 
+.buttons .button.selected {
+    background-color: #333;
 }
 
-.button.selected {
-    background-color: #a51723;
-}
-
-/* Botão Adicionar Mídia */
 .add-button-container {
-    text-align: center;
+    margin-top: 20px;
 }
 
 .add-button {
@@ -116,40 +152,17 @@ input[type="text"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    margin-top: 60px;
 }
 
 .add-button:hover {
     background-color: #000; 
 }
 
-/* Mensagens de sucesso ou erro */
-.success {
-    color: green;
-    font-size: 1rem;
-    margin-top: 20px;
-    text-align: center;
-}
-
 .error {
     color: red;
-    font-size: 1rem;
-    margin-top: 20px;
-    text-align: center;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .movie-form {
-        width: 80%;
-    }
-
-    .button {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-
-    .add-button {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
+.success {
+    color: green;
 }
