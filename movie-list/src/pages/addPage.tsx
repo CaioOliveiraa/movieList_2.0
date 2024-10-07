@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MovieForm from '../components/movieForm';
 import { getMovies } from '../services/api';
+import './styles/addpage.css'
 
 interface Movie {
     id: string;
@@ -38,11 +39,11 @@ const AddPage: React.FC = () => {
 
     return (
         <div>
-            <nav>
-                <button>VOLTAR</button>
-                <button>FILMES</button>
+            <nav className='menu'>
+                <a href="/home" className="arrow-button-left">VOLTAR</a>
+                <a href="/movies" className="arrow-button-right">MÍDIAS</a>
             </nav>
-            <MovieForm onMovieAdded={handleMovieAdded}/> 
+            <MovieForm onMovieAdded={handleMovieAdded} />
         </div>
     );
 }

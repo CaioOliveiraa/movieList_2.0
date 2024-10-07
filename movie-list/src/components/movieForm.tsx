@@ -84,7 +84,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ onMovieAdded }) => {
             {/* Formulário */}
             <form onSubmit={handleSubmit} className="movie-form">
                 <div className="container">
-                    <h2>NOME</h2>
+                    <h2>TÍTULO</h2>
                     <input
                         type="text"
                         placeholder="Título"
