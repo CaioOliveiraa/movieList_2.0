@@ -30,52 +30,55 @@ const MovieForm: React.FC<MovieFormProps> = ({ onMovieAdded }) => {
     return (
         <div className='movie-form-page'>
             {/* Quadrado Vermelho */}
-            <div className="red-square"></div>
+            <div className="red-square">
+                {/* Bolinhas no topo */}
+                <div className="bulb bulb-top"></div>
+                <div className="bulb bulb-top"></div>
+                <div className="bulb bulb-top"></div>
+                <div className="bulb bulb-top"></div>
+                <div className="bulb bulb-top"></div>
+                <div className="bulb bulb-top"></div>
+                <div className="bulb bulb-top"></div>
+                <div className="bulb bulb-top"></div>
 
-            {/* Quadrado com bolinhas amarelas */}
-            <div className="yellow-bulbs">
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
-                <div className="bulb"></div>
+                {/* Bolinhas na direita */}
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
+                <div className="bulb bulb-right"></div>
 
+                {/* Bolinhas na parte inferior */}
+                <div className="bulb bulb-bottom"></div>
+                <div className="bulb bulb-bottom"></div>
+                <div className="bulb bulb-bottom"></div>
+                <div className="bulb bulb-bottom"></div>
+                <div className="bulb bulb-bottom"></div>
+                <div className="bulb bulb-bottom"></div>
+                <div className="bulb bulb-bottom"></div>
+                <div className="bulb bulb-bottom"></div>
+
+
+                {/* Bolinhas na esquerda */}
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
+                <div className="bulb bulb-left"></div>
             </div>
 
             {/* Formulário */}

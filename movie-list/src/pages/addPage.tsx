@@ -37,7 +37,13 @@ const AddPage: React.FC = () => {
     };
 
     return (
-        <MovieForm onMovieAdded={handleMovieAdded} /> // Passando a função para o componente
+        <div>
+            <nav>
+                <button>VOLTAR</button>
+                <button>FILMES</button>
+            </nav>
+            <MovieForm onMovieAdded={handleMovieAdded}/> 
+        </div>
     );
 }
 

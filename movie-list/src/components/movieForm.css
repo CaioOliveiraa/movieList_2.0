@@ -2,9 +2,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #000; 
+    background-color: #000;
     font-family: Arial, sans-serif;
-    color: #fff; 
+    color: #fff;
 }
 
 .movie-form-page {
@@ -12,118 +12,125 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* O contêiner pai terá position: relative */
+    position: relative;
 }
 
-/* Formulário */
+/* Estilo do formulário */
 .container {
     padding: 20px;
     border-radius: 10px;
     height: 500px;
     background-color: #f5d7ae;
-    position: relative;
-    z-index: 1; 
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
 /* Quadrado vermelho */
 .red-square {
-    position: absolute; /* Agora o quadrado é absoluto em relação ao contêiner pai */
+    position: absolute;
     width: 525px;
     height: 630px;
+    top: 13%;
     background-color: #a51723;
     border-radius: 20px;
     border: 3px solid rgba(255, 255, 0, 0.6);
-    box-shadow: 0 0 50px rgba(255, 255, 0, 0.5); 
-    top: 42.5%; 
-    left: 50%; /* Ajuste conforme o layout desejado */
-    transform: translate(-50%, -50%);
-    z-index: -2; /* Colocar o quadrado atrás das bolinhas */
+    box-shadow: 0 0 50px rgba(255, 255, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1; /* O quadrado vermelho ficará atrás do formulário */
 }
 
-/* Estilos para cada bolinha */
+
 .bulb {
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     background-color: yellow;
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
-    position: absolute; 
-    z-index: -1; 
-}
-
-/* Posicionando as bolinhas ao redor do quadrado */
-/* Bolinhas no topo */
-.bulb:nth-child(1) { top: 11.5%; left: 24%; }   /* Primeira bolinha */
-.bulb:nth-child(2) { top: 11.5%; left: calc(23.5% + 6.31% * 1); } /* Segunda bolinha */
-.bulb:nth-child(3) { top: 11.5%; left: calc(23.5% + 6.31% * 2); } /* Terceira bolinha */
-.bulb:nth-child(4) { top: 11.5%; left: calc(23.5% + 6.31% * 3); } /* Quarta bolinha */
-.bulb:nth-child(5) { top: 11.5%; left: calc(23.5% + 6.31% * 4); } /* Quinta bolinha */
-.bulb:nth-child(6) { top: 11.5%; left: calc(23.5% + 6.31% * 5); } /* Sexta bolinha */
-.bulb:nth-child(7) { top: 11.5%; left: calc(23.5% + 6.31% * 6); } /* Sétima bolinha */
-.bulb:nth-child(8) { top: 11.5%; left: calc(23.5% + 6.31% * 7); } /* Oitava bolinha */
-.bulb:nth-child(9) { top: 11.5%; left: 74%; }     /* Última bolinha */
-
-/* Bolinhas na direita (com top distribuído igualmente) */
-.bulb:nth-child(10) { top: 11.5%; left: 74%; }    /* Primeira bolinha */
-.bulb:nth-child(11) { top: calc(11.5% + 6% * 1); left: 74%; }  /* Segunda bolinha */
-.bulb:nth-child(12) { top: calc(11.5% + 6% * 2); left: 74%; }  /* Terceira bolinha */
-.bulb:nth-child(13) { top: calc(11.5% + 6% * 3); left: 74%; }  /* Quarta bolinha */
-.bulb:nth-child(14) { top: calc(11.5% + 6% * 4); left: 74%; }  /* Quinta bolinha */
-.bulb:nth-child(15) { top: calc(11.5% + 6% * 5); left: 74%; }  /* Sexta bolinha */
-.bulb:nth-child(16) { top: calc(11.5% + 6% * 6); left: 74%; }  /* Sétima bolinha */
-.bulb:nth-child(17) { top: calc(11.5% + 6% * 7); left: 74%; }  /* Oitava bolinha */
-.bulb:nth-child(18) { top: calc(11.5% + 6% * 8); left: 74%; }  /* Nona bolinha */
-.bulb:nth-child(19) { top: calc(11.5% + 6% * 9); left: 74%; }  /* Décima bolinha */
-.bulb:nth-child(20) { top: 71.5%; left: 74%; }    /* Última bolinha */
-
-
-/* Bolinhas na parte inferior (com left distribuído igualmente para 9 bolinhas) */
-.bulb:nth-child(21) { top: 71.5%; left: 24%; }    /* Primeira bolinha */
-.bulb:nth-child(22) { top: 71.5%; left: calc(23.5% + 6.31% * 1); }  /* Segunda bolinha */
-.bulb:nth-child(23) { top: 71.5%; left: calc(23.5% + 6.31% * 2); }  /* Terceira bolinha */
-.bulb:nth-child(24) { top: 71.5%; left: calc(23.5% + 6.31% * 3); }  /* Quarta bolinha */
-.bulb:nth-child(25) { top: 71.5%; left: calc(23.5% + 6.31% * 4); }  /* Quinta bolinha */
-.bulb:nth-child(26) { top: 71.5%; left: calc(23.5% + 6.31% * 5); }  /* Sexta bolinha */
-.bulb:nth-child(27) { top: 71.5%; left: calc(23.5% + 6.31% * 6); }  /* Sétima bolinha */
-.bulb:nth-child(28) { top: 71.5%; left: calc(23.5% + 6.31% * 7); }  /* Oitava bolinha */
-.bulb:nth-child(29) { top: 71.5%; left: 74%; }      /* Última bolinha */
-
-
-
-.bulb:nth-child(30) { top: 11.5%; left: 24%; }    /* Primeira bolinha */
-.bulb:nth-child(31) { top: calc(11.5% + 6% * 1); left: 24%; }  /* Segunda bolinha */
-.bulb:nth-child(32) { top: calc(11.5% + 6% * 2); left: 24%; }  /* Terceira bolinha */
-.bulb:nth-child(33) { top: calc(11.5% + 6% * 3); left: 24%; }  /* Quarta bolinha */
-.bulb:nth-child(34) { top: calc(11.5% + 6% * 4); left: 24%; }  /* Quinta bolinha */
-.bulb:nth-child(35) { top: calc(11.5% + 6% * 5); left: 24%; }  /* Sexta bolinha */
-.bulb:nth-child(36) { top: calc(11.5% + 6% * 6); left: 24%; }  /* Sétima bolinha */
-.bulb:nth-child(37) { top: calc(11.5% + 6% * 7); left: 24%; }  /* Oitava bolinha */
-.bulb:nth-child(38) { top: calc(11.5% + 6% * 8); left: 24%; }  /* Nona bolinha */
-.bulb:nth-child(39) { top: calc(11.5% + 6% * 9); left: 24%; }  /* Décima bolinha */
-.bulb:nth-child(40) { top: 71.5%; left: 24%; }    /* Última bolinha */
-
-
-
-/* Efeito de brilho */
-.bulb:hover {
-    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.8); /* Aumentado o valor inicial do box-shadow */
+    position: absolute;
+    animation: pulse 2s infinite; /* Animação de brilho contínua */
 }
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+        box-shadow: 0 0 30px rgba(255, 255, 0, 0.5); /* Aumentado o brilho inicial */
+        background-color: rgba(255, 255, 0, 0.8); /* Amarelo suave */
     }
     50% {
-        box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+        box-shadow: 0 0 80px rgba(255, 255, 0, 1); /* Aumentado o brilho máximo */
+        background-color: rgba(255, 255, 0, 1); /* Amarelo mais intenso */
     }
     100% {
-        box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+        box-shadow: 0 0 30px rgba(255, 255, 0, 0.5); /* Volta ao brilho suave, maior do que antes */
+        background-color: rgba(255, 255, 0, 0.8); /* Amarelo suave novamente */
     }
 }
 
 
-/* Estilo dos botões de seleção de tipo */
+
+/* Bolinhas no topo */
+.bulb-top {
+    top: 15px;
+}
+
+.bulb:nth-child(1) { left: calc(15px + (492px - 15px) * 1 / 9); }
+.bulb:nth-child(2) { left: calc(15px + (492px - 15px) * 2 / 9); }
+.bulb:nth-child(3) { left: calc(15px + (492px - 15px) * 3 / 9); }
+.bulb:nth-child(4) { left: calc(15px + (492px - 15px) * 4 / 9); }
+.bulb:nth-child(5) { left: calc(15px + (492px - 15px) * 5 / 9); }
+.bulb:nth-child(6) { left: calc(15px + (492px - 15px) * 6 / 9); }
+.bulb:nth-child(7) { left: calc(15px + (492px - 15px) * 7 / 9); }
+.bulb:nth-child(8) { left: calc(15px + (492px - 15px) * 8 / 9); }
+
+/* Bolinhas na direita */
+.bulb-right {
+    right: 15px;
+}
+
+.bulb:nth-child(9) { top: calc(15px + (600px - 15px) * 0 / 11); }
+.bulb:nth-child(10) { top: calc(15px + (600px - 15px) * 1 / 11); }
+.bulb:nth-child(11) { top: calc(15px + (600px - 15px) * 2 / 11); }
+.bulb:nth-child(12) { top: calc(15px + (600px - 15px) * 3 / 11); }
+.bulb:nth-child(13) { top: calc(15px + (600px - 15px) * 4 / 11); }
+.bulb:nth-child(14) { top: calc(15px + (600px - 15px) * 5 / 11); }
+.bulb:nth-child(15) { top: calc(15px + (600px - 15px) * 6 / 11); }
+.bulb:nth-child(16) { top: calc(15px + (600px - 15px) * 7 / 11); }
+.bulb:nth-child(17) { top: calc(15px + (600px - 15px) * 8 / 11); }
+.bulb:nth-child(18) { top: calc(15px + (600px - 15px) * 9 / 11); }
+.bulb:nth-child(19) { top: calc(15px + (600px - 15px) * 10 / 11); }
+.bulb:nth-child(20) { top: calc(15px + (600px - 15px) * 11 / 11); }
+
+/* Bolinhas na esquerda */
+.bulb-bottom {
+    bottom: 13px;
+}
+
+.bulb:nth-child(21) { left: calc(15px + (492px - 15px) * 1 / 9); }
+.bulb:nth-child(22) { left: calc(15px + (492px - 15px) * 2 / 9); }
+.bulb:nth-child(23) { left: calc(15px + (492px - 15px) * 3 / 9); }
+.bulb:nth-child(24) { left: calc(15px + (492px - 15px) * 4 / 9); }
+.bulb:nth-child(25) { left: calc(15px + (492px - 15px) * 5 / 9); }
+.bulb:nth-child(26) { left: calc(15px + (492px - 15px) * 6 / 9); }
+.bulb:nth-child(27) { left: calc(15px + (492px - 15px) * 7 / 9); }
+.bulb:nth-child(28) { left: calc(15px + (492px - 15px) * 8 / 9); }
+
+.bulb-left {
+    left: 15px;
+}
+
+.bulb:nth-child(29) { top: calc(15px + (600px - 15px) * 0 / 11); }
+.bulb:nth-child(30) { top: calc(15px + (600px - 15px) * 1 / 11); }
+.bulb:nth-child(31) { top: calc(15px + (600px - 15px) * 2 / 11); }
+.bulb:nth-child(32) { top: calc(15px + (600px - 15px) * 3 / 11); }
+.bulb:nth-child(33) { top: calc(15px + (600px - 15px) * 4 / 11); }
+.bulb:nth-child(34) { top: calc(15px + (600px - 15px) * 5 / 11); }
+.bulb:nth-child(35) { top: calc(15px + (600px - 15px) * 6 / 11); }
+.bulb:nth-child(36) { top: calc(15px + (600px - 15px) * 7 / 11); }
+.bulb:nth-child(37) { top: calc(15px + (600px - 15px) * 8 / 11); }
+.bulb:nth-child(38) { top: calc(15px + (600px - 15px) * 9 / 11); }
+.bulb:nth-child(39) { top: calc(15px + (600px - 15px) * 10 / 11); }
+.bulb:nth-child(40) { top: calc(15px + (600px - 15px) * 11 / 11); }
+
 .buttons .button {
     padding: 10px 20px;
     margin: 5px;
@@ -135,7 +142,7 @@ body {
 }
 
 .buttons .button.selected {
-    background-color: #333;
+    background-color: #5a0c13;
 }
 
 .add-button-container {
@@ -152,11 +159,10 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    margin-top: 60px;
 }
 
 .add-button:hover {
-    background-color: #000; 
+    background-color: #000;
 }
 
 .error {
