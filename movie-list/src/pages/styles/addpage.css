@@ -11,7 +11,7 @@
     background-color: #a51723;
     color: white;
     text-decoration: none;
-    padding: 10px 50px 10px 30px; /* Espaço ajustado para ambos os botões */
+    padding: 10px 50px 10px 30px; 
     font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -19,7 +19,7 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Botão com seta para a esquerda (VOLTAR) */
+
 .menu a.arrow-button-left::before {
     content: '';
     position: absolute;
@@ -28,11 +28,11 @@
     transform: translateY(-50%);
     border-top: 30px solid transparent;
     border-bottom: 30px solid transparent;
-    border-right: 50px solid #a51723; /* Cor da seta */
-    transform: .2s;
+    border-right: 50px solid #a51723; 
+    transition: .3s;
 }
 
-/* Botão com seta para a direita (MÍDIAS) */
+
 .menu a.arrow-button-right::after {
     content: '';
     position: absolute;
@@ -42,7 +42,7 @@
     border-top: 30px solid transparent;
     border-bottom: 30px solid transparent;
     border-left: 50px solid #a51723; /* Cor da seta */
-    transform: .2s;
+    transition: .3s;
 }
 
 /* Efeito hover no botão VOLTAR */
