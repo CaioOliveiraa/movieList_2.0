@@ -13,6 +13,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ title, onSubmit, errorMessage }) =>
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         onSubmit(name, password);
+        setName('')
+        setPassword('')
     }
     return (
         <form onSubmit={handleSubmit} className="auth-form">

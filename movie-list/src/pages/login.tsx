@@ -1,31 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { loginUser } from '../services/api';
 import AuthForm from '../components/authForm';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage: React.FC = () => {
+interface LoginPageProps {
+    onLoginSuccess: () => void;
+}
+
+const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
     const [errorMessage, setErrorMessage] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    // Verificar se o token já existe e redirecionar imediatamente para '/home' se estiver autenticado
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            navigate('/home', { replace: true });  
-        }
-    }, [navigate]);
-
     const handleLogin = async (name: string, password: string) => {
+        setLoading(true);
         try {
-            await loginUser(name, password);  
-            navigate('/home', { replace: true });  
+            // Faz o login e salva o token
+            const token = await loginUser(name, password);
+            console.log('Token salvo com sucesso no localStorage:', token);
+
+            // Atualiza a autenticação
+            onLoginSuccess();
+
+            // Valida se o token está realmente salvo no localStorage
+            setTimeout(() => {
+                const storedToken = localStorage.getItem('token');
+                if (storedToken) {
+                    console.log('Token recuperado do localStorage:', storedToken);
+                    // Redireciona para a página "/home"
+                    navigate('/home', { replace: true });
+                } else {
+                    setErrorMessage('Erro ao validar o token. Tente novamente.');
+                }
+            }, 500); // Adicionando um pequeno atraso (100ms) para garantir que o token seja lido
         } catch (error) {
-            setErrorMessage('Falha ao fazer login. Verifique seus dados.');
+            setErrorMessage('Falha ao fazer login. Verifique suas credenciais.');
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
-        <AuthForm title="Login" onSubmit={handleLogin} errorMessage={errorMessage} />
+        <div>
+            {loading ? <p>Carregando...</p> : null}
+            <AuthForm title="Login" onSubmit={handleLogin} errorMessage={errorMessage} />
+        </div>
     );
 };
 
