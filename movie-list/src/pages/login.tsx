@@ -1,38 +1,27 @@
+// src/pages/LoginPage.tsx
 import React, { useState } from 'react';
 import { loginUser } from '../services/api';
 import AuthForm from '../components/authForm';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
-interface LoginPageProps {
-    onLoginSuccess: () => void;
-}
-
-const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
+const LoginPage: React.FC = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleLogin = async (name: string, password: string) => {
         setLoading(true);
         try {
-            // Faz o login e salva o token
-            const token = await loginUser(name, password);
-            console.log('Token salvo com sucesso no localStorage:', token);
+            // Faz o login e obtém o token
+            const token = await loginUser(name, password); // Passa dois parâmetros aqui
 
-            // Atualiza a autenticação
-            onLoginSuccess();
+            // Armazena o token e atualiza o estado de autenticação usando o contexto
+            login(token);
 
-            // Valida se o token está realmente salvo no localStorage
-            setTimeout(() => {
-                const storedToken = localStorage.getItem('token');
-                if (storedToken) {
-                    console.log('Token recuperado do localStorage:', storedToken);
-                    // Redireciona para a página "/home"
-                    navigate('/home', { replace: true });
-                } else {
-                    setErrorMessage('Erro ao validar o token. Tente novamente.');
-                }
-            }, 500); // Adicionando um pequeno atraso (100ms) para garantir que o token seja lido
+            // Redireciona para a página "/home"
+            navigate('/home', { replace: true });
         } catch (error) {
             setErrorMessage('Falha ao fazer login. Verifique suas credenciais.');
         } finally {

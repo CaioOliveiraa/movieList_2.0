@@ -5,39 +5,35 @@ import RegisterPage from './pages/register';
 import MoviePage from './pages/moviePage';
 import HomePage from './pages/homePage';
 import AddPage from './pages/addPage';
-
+import { useAuth, AuthProvider } from './context/AuthContext'; 
 import './App.css';
+const ProtectedRoute: React.FC<{ element: JSX.Element }> = ({ element }) => {
+    const { isAuthenticated } = useAuth(); // Obtém o estado de autenticação do contexto
 
+    return isAuthenticated ? element : <Navigate to="/login" />;
+};
 const App: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!localStorage.getItem('token'));
+    return (
+        <AuthProvider> {/* Envolvendo a aplicação com o AuthProvider */}
+            <Router>
+                <div className="App">
+                    <Routes>
+                        {/* Rotas públicas */}
+                        <Route path="/register" element={<RegisterPage />} />
+                        <Route path="/login" element={<LoginPage />} />
 
-  // Função para verificar o token no localStorage ao iniciar a aplicação ou quando o estado mudar
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsAuthenticated(!!token); // Atualiza o estado se houver token
-  }, []);
+                        {/* Rotas protegidas */}
+                        <Route path="/home" element={<ProtectedRoute element={<HomePage />} />} />
+                        <Route path="/movies" element={<ProtectedRoute element={<MoviePage />} />} />
+                        <Route path="/addMovie" element={<ProtectedRoute element={<AddPage />} />} />
 
-  const handleLoginSuccess = () => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsAuthenticated(true);
-    }
-  };
-
-  return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage onLoginSuccess={handleLoginSuccess} />} />
-          <Route path="/home" element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
-          <Route path="/movies" element={isAuthenticated ? <MoviePage /> : <Navigate to="/login" />} />
-          <Route path="/addMovie" element={isAuthenticated ? <AddPage /> : <Navigate to="/login" />} />
-          <Route path="*" element={isAuthenticated ? <HomePage /> : <Navigate to='/login' />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+                        {/* Rota padrão */}
+                        <Route path="*" element={<ProtectedRoute element={<LoginPage />} />} />
+                    </Routes>
+                </div>
+            </Router>
+        </AuthProvider>
+    );
 };
 
 export default App;
