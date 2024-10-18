@@ -17,14 +17,35 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
 
     return (
         <div className="movie-list">
-            <nav className="menu">
+            <nav className="type-menu">
                 <ul>
-                    <li><a href="#movies">Filmes</a></li>
-                    <li><a href="#series">Séries</a></li>
-                    <li><a href="#anime">Animes</a></li>
-                    <li><a href="#documentary">Documentários</a></li>
+                    <li>
+                        <a className="ticket" href="#movies">
+                            <img src="/assets/ticketAzul.png" alt="ticket" />
+                            <span>Filmes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a className="ticket" href="#series">
+                            <img src="/assets/ticketLaranja.png" alt="ticket" />
+                            <span>Séries</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a className="ticket" href="#anime">
+                            <img src="/assets/ticketRoxo.png" alt="ticket" />
+                            <span>Animes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a className="ticket" href="#documentary">
+                            <img src="/assets/ticketVerde.png" alt="ticket" />
+                            <span>Documentários</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
+
 
             <section id="movies" className="media-section">
                 <h3 className="section-title">Filmes</h3>
@@ -55,7 +76,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                             <div key={movie.id} className="media-card">
                                 <h4>{movie.title}</h4>
                                 <p>{movie.description}</p>
-                                
+
                             </div>
                         ))}
                     </div>

@@ -8,13 +8,13 @@ import AddPage from './pages/addPage';
 import { useAuth, AuthProvider } from './context/AuthContext'; 
 import './App.css';
 const ProtectedRoute: React.FC<{ element: JSX.Element }> = ({ element }) => {
-    const { isAuthenticated } = useAuth(); // Obtém o estado de autenticação do contexto
+    const { isAuthenticated } = useAuth(); 
 
     return isAuthenticated ? element : <Navigate to="/login" />;
 };
 const App: React.FC = () => {
     return (
-        <AuthProvider> {/* Envolvendo a aplicação com o AuthProvider */}
+        <AuthProvider> 
             <Router>
                 <div className="App">
                     <Routes>

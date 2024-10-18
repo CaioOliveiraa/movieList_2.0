@@ -14,7 +14,6 @@ interface Movie {
 const MoviesPage: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
 
-    // Função para buscar os filmes do banco de dados
     const fetchMovies = async () => {
         try {
             const moviesData = await getMovies();
@@ -32,17 +31,16 @@ const MoviesPage: React.FC = () => {
     };
 
     useEffect(() => {
-        fetchMovies(); // Carrega as mídias ao montar o componente
+        fetchMovies();
     }, []);
 
     const handleMovieAdded = () => {
-        fetchMovies(); // Atualiza a lista de filmes quando uma nova mídia é adicionada
+        fetchMovies();
     };
 
     return (
         <div className="movies-page">
             <h2>Seus Filmes</h2>
-            {/* <MovieForm onMovieAdded={handleMovieAdded} /> */}
             <MovieList movies={movies} />
         </div>
     );
