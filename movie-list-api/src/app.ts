@@ -11,8 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
-app.use('/api/movies', movieRoutes);
+app.use('/api', authRoutes);
+app.use('/api', movieRoutes);
 
 mongoose.connect(MONGO_URI)
     .then(() => {

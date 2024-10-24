@@ -16,7 +16,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ onMovieAdded }) => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await addMovie(title, description, type);
+            await addMovie({title, description, type});
             setMessage('Mídia adicionada com sucesso!');
             setIsError(false);
             onMovieAdded(); // Chama a função para atualizar a lista de filmes na página de adição

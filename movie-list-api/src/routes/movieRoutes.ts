@@ -1,10 +1,10 @@
-import { Router } from 'express';
-import { getMovies, addMovie} from '../controller/movieContoller';
+import express from 'express';
+import { getMovies, addMovie } from '../controller/movieContoller';
 import { authMiddleware } from '../middleware/authMiddleware';
 
-const router = Router();
+const router = express.Router();
 
-router.post('/add', authMiddleware, addMovie);
-router.get('/', authMiddleware, getMovies);
+router.get('/movies', authMiddleware, getMovies);
+router.post('/movies/add', authMiddleware, addMovie);
 
 export default router;

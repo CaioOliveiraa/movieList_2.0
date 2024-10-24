@@ -1,9 +1,8 @@
-// src/pages/LoginPage.tsx
 import React, { useState } from 'react';
-import { loginUser } from '../services/api';
-import AuthForm from '../components/authForm';
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import AuthForm from '../components/authForm';
 
 const LoginPage: React.FC = () => {
     const [errorMessage, setErrorMessage] = useState('');
@@ -13,9 +12,7 @@ const LoginPage: React.FC = () => {
     const handleLogin = async (name: string, password: string) => {
         try {
             const token = await loginUser(name, password);
-
             login(token);
-
             navigate('/home', { replace: true });
         } catch (error) {
             setErrorMessage('Falha ao fazer login. Verifique suas credenciais.');
@@ -23,9 +20,7 @@ const LoginPage: React.FC = () => {
     };
 
     return (
-        <div>
-            <AuthForm title="Login" onSubmit={handleLogin} errorMessage={errorMessage} />
-        </div>
+        <AuthForm title="Login" onSubmit={handleLogin} errorMessage={errorMessage} />
     );
 };
 
