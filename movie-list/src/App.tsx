@@ -5,6 +5,7 @@ import RegisterPage from './pages/register';
 import MoviePage from './pages/moviePage';
 import HomePage from './pages/homePage';
 import AddPage from './pages/addPage';
+import EditMoviePage from './pages/editPage';
 import { useAuth, AuthProvider } from './context/AuthContext'; 
 import './App.css';
 const ProtectedRoute: React.FC<{ element: JSX.Element }> = ({ element }) => {
@@ -26,6 +27,7 @@ const App: React.FC = () => {
                         <Route path="/home" element={<ProtectedRoute element={<HomePage />} />} />
                         <Route path="/movies" element={<ProtectedRoute element={<MoviePage />} />} />
                         <Route path="/addMovie" element={<ProtectedRoute element={<AddPage />} />} />
+                        <Route path="/editMovie/:movieId" element={<ProtectedRoute element={<EditMoviePage />} />} />
 
                         {/* Rota padrão */}
                         <Route path="*" element={<ProtectedRoute element={<LoginPage />} />} />

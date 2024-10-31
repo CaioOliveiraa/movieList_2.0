@@ -1,5 +1,7 @@
 import React from 'react';
 import './movieList.css';
+import { useNavigate } from 'react-router-dom';
+import { deleteMovie } from '../services/api';
 
 interface Movie {
     id: string;
@@ -10,9 +12,25 @@ interface Movie {
 
 interface MovieListProps {
     movies: Movie[];
+    onMovieDeleted: (id: string) => void;
 }
 
-const MovieList: React.FC<MovieListProps> = ({ movies }) => {
+const MovieList: React.FC<MovieListProps> = ({ movies, onMovieDeleted }) => {
+
+    const handleDelete = async (movieId: string) => {
+        try {
+            await deleteMovie(movieId);
+            onMovieDeleted(movieId); 
+        } catch (error) {
+            console.error('Erro ao excluir o filme:', error);
+        }
+    };
+
+    const navigate = useNavigate();
+    const handleEdit = (movieId: string) => {
+        navigate(`/editmovie/${movieId}`);
+    };
+
     const filterByType = (type: Movie['type']) => movies.filter(movie => movie.type === type);
 
     return (
@@ -57,9 +75,9 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                             <div key={movie.id} className="media-card">
                                 <h4>{movie.title}</h4>
                                 <p>{movie.description}</p>
-                                <button>Editar</button>
+                                <button onClick={() => handleEdit(movie.id)}>Editar</button>
                                 <button>Visto</button>
-                                <button>Apagar</button>
+                                <button onClick={() => handleDelete(movie.id)}>Apagar</button>
                             </div>
                         ))}
                     </div>
@@ -76,7 +94,9 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                             <div key={movie.id} className="media-card">
                                 <h4>{movie.title}</h4>
                                 <p>{movie.description}</p>
-
+                                <button onClick={() => handleEdit(movie.id)}>Editar</button>
+                                <button>Visto</button>
+                                <button onClick={() => handleDelete(movie.id)}>Apagar</button>
                             </div>
                         ))}
                     </div>
@@ -93,6 +113,9 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                             <div key={movie.id} className="media-card">
                                 <h4>{movie.title}</h4>
                                 <p>{movie.description}</p>
+                                <button onClick={() => handleEdit(movie.id)}>Editar</button>
+                                <button>Visto</button>
+                                <button onClick={() => handleDelete(movie.id)}>Apagar</button>
                             </div>
                         ))}
                     </div>
@@ -109,6 +132,9 @@ const MovieList: React.FC<MovieListProps> = ({ movies }) => {
                             <div key={movie.id} className="media-card">
                                 <h4>{movie.title}</h4>
                                 <p>{movie.description}</p>
+                                <button onClick={() => handleEdit(movie.id)}>Editar</button>
+                                <button>Visto</button>
+                                <button onClick={() => handleDelete(movie.id)}>Apagar</button>
                             </div>
                         ))}
                     </div>

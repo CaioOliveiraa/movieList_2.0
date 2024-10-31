@@ -97,4 +97,47 @@ export const getMovies = async () => {
     }
 };
 
+export const getMovie = async (movieId: string) => {
+    try {
+        const response = await api.get(`/movies/${movieId}`);
+        return response.data;
+    } catch (error) {
+        console.error('Erro ao buscar filme:', error);
+        throw new Error('Erro ao buscar filme');
+    }
+};
+
+export const deleteMovie = async (movieId: string) => {
+    try {
+        const token = localStorage.getItem('accessToken');
+        const response = await api.delete(`/movies/${movieId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        console.log('Filme excluído com sucesso!');
+        return response.data;
+    } catch (error) {
+        console.error('Erro ao excluir filme:', error);
+        throw new Error('Erro ao excluir filme');
+    }
+};
+
+export const updateMovie = async (movieId: string, movie: {title: string, description: string, type: string}) => {
+    try {
+        const token = localStorage.getItem('accessToken');
+        const response = await api.put(`/movies/${movieId}`, movie, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        console.log('Filme atualizado com sucesso!');
+        return response.data;
+    } catch (error) {
+        console.error('Erro ao atualizar filme:', error);
+        throw new Error('Erro ao atualizar filme');
+    }
+}
+
+
 export default api;

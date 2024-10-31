@@ -20,6 +20,23 @@ export const getMovies = async (req: AuthenticatedRequest, res: Response) => {
     }
 };
 
+export const getMovie = async (req: Request, res: Response) => {
+    const movieId = req.params.movieId;
+
+    try {
+        const movie = await Movie.findById(movieId);
+
+        if (!movie) {
+            return res.status(404).json({ message: 'Filme não encontrado' });
+        }
+
+        return res.status(200).json(movie);
+    } catch (error) {
+        console.error('Erro ao buscar filme:', error);
+        return res.status(500).json({ message: 'Erro ao buscar filme' });
+    }
+};
+
 export const addMovie = async (req: AuthenticatedRequest, res: Response) => {
     const { title, description, type } = req.body;
     const userId = req.userId;
@@ -81,7 +98,6 @@ export const deleteMovie = async (req: AuthenticatedRequest, res: Response) => {
             return res.status(404).json({ message: 'Filme não encontrado' });
         }
 
-        console.log(`Filme excluído: ${movie._id}`);
         return res.status(200).json({ message: 'Filme excluído com sucesso' });
 
     } catch (error) {

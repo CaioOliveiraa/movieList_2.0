@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import MovieForm from '../components/movieForm';
 import MovieList from '../components/movieList';
 import { getMovies } from '../services/api';
 
@@ -13,6 +12,10 @@ interface Movie {
 
 const MoviesPage: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
+
+    useEffect(() => {
+        fetchMovies();
+    }, []);
 
     const fetchMovies = async () => {
         try {
@@ -30,18 +33,15 @@ const MoviesPage: React.FC = () => {
         }
     };
 
-    useEffect(() => {
-        fetchMovies();
-    }, []);
-
-    const handleMovieAdded = () => {
-        fetchMovies();
+    const handleMovieDeleted = (movieId: string) => {
+        setMovies((prevMovies) => prevMovies.filter(movie => movie.id !== movieId));
     };
+
 
     return (
         <div className="movies-page">
             <h2>Seus Filmes</h2>
-            <MovieList movies={movies} />
+            <MovieList movies={movies} onMovieDeleted={handleMovieDeleted} />
         </div>
     );
 };
