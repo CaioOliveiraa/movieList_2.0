@@ -66,7 +66,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieDeleted }) => {
 
 
             <section id="movies" className="media-section">
-                <h3 className="section-title">Filmes</h3>
+                <h1 className="section-title">Filmes</h1>
                 {filterByType('movie').length === 0 ? (
                     <p>Nenhum filme adicionado ainda.</p>
                 ) : (
@@ -85,7 +85,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieDeleted }) => {
             </section>
 
             <section id="series" className="media-section">
-                <h3 className="section-title">Séries</h3>
+                <h1 className="section-title">Séries</h1>
                 {filterByType('series').length === 0 ? (
                     <p>Nenhuma série adicionada ainda.</p>
                 ) : (
@@ -104,7 +104,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieDeleted }) => {
             </section>
 
             <section id="anime" className="media-section">
-                <h3 className="section-title">Animes</h3>
+                <h1 className="section-title">Animes</h1>
                 {filterByType('anime').length === 0 ? (
                     <p>Nenhum anime adicionado ainda.</p>
                 ) : (
@@ -123,7 +123,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieDeleted }) => {
             </section>
 
             <section id="documentary" className="media-section">
-                <h3 className="section-title">Documentários</h3>
+                <h1 className="section-title">Documentários</h1>
                 {filterByType('documentary').length === 0 ? (
                     <p>Nenhum documentário adicionado ainda.</p>
                 ) : (

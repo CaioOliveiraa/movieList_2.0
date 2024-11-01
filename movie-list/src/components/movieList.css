@@ -30,26 +30,48 @@ body {
 }
 
 .type-menu ul li a {
-    /* background-color: transparent; */
     display: block;
-    position: relative;      /* Para sobrepor o texto na imagem */
-    text-decoration: none;   /* Remove o sublinhado */
-    color: white;            /* Define a cor do texto */
-    text-align: center;      /* Centraliza o texto */
+    position: relative;      
+    text-decoration: none;  
+    color: white;            
+    text-align: center;     
 }
 
 .type-menu ul li a img {
-    width: 100px; /* Ajuste o tamanho da imagem */
-    height: auto; /* Mantém a proporção da imagem */
+    width: 200px; 
+    height: auto; 
 }
 
 .type-menu ul li a span {
     position: absolute;
-    top: 50%;                /* Centraliza verticalmente */
-    left: 50%;               /* Centraliza horizontalmente */
-    transform: translate(-50%, -50%); /* Garante que o centro do texto seja o meio da imagem */
-    font-weight: bold;       /* Negrito para o texto */
-    font-size: 14px;         /* Tamanho do texto ajustável */
-    white-space: nowrap;     /* Evita quebra de linha no texto */
-    pointer-events: none;    /* Evita que o texto receba o clique (só a imagem é clicável) */
+    top: 50%;                
+    left: 50%;               
+    transform: translate(-50%, -50%); 
+    font-weight: bold;       
+    font-size: 16px;        
+    white-space: nowrap;     
+    pointer-events: none;    
+}
+
+/* .type-menu ul li a span:hover{
+    font-size: 18px;
+} */
+
+.media-section p{
+    margin: 10px;
+}
+
+.media-grid{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    /* background-color: aqua; */
+}
+
+.media-card{
+    background-color: #252525;
+    border: solid 1px #656258;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 20px;
 }
