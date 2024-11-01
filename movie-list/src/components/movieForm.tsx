@@ -19,7 +19,7 @@ const MovieForm: React.FC<MovieFormProps> = ({ onMovieAdded }) => {
             await addMovie({title, description, type});
             setMessage('Mídia adicionada com sucesso!');
             setIsError(false);
-            onMovieAdded(); // Chama a função para atualizar a lista de filmes na página de adição
+            onMovieAdded();
         } catch (error) {
             console.error('Erro ao adicionar mídia:', error);
             setMessage('Erro ao adicionar mídia.');

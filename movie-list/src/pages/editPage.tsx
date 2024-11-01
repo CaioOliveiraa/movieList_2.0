@@ -42,11 +42,13 @@ const EditMoviePage: React.FC = () => {
     }
 
     return (
-        <EditMovieForm
-            initialData={movieData} 
-            onSubmit={handleUpdateMovie}
-            onCancel={() => navigate('/movies')}
-        />
+        <div>
+            <EditMovieForm
+                initialData={movieData} 
+                onSubmit={handleUpdateMovie}
+                onCancel={() => navigate('/movies')}
+                />
+        </div>
     );
 };
 
