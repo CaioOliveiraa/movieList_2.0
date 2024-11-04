@@ -12,8 +12,6 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    /* overflow-y: auto;  */
-
 }
 
 
@@ -27,8 +25,12 @@ body {
 
 .type-menu ul li {
     background-color: transparent;
-    margin-right: 20px; /* Espaçamento entre os itens */
-    position: relative; /* Para posicionamento relativo do texto sobre a imagem */
+    position: relative; 
+    margin-right: 20px; 
+}
+
+.type-menu ul li:last-child {
+    margin-right: 0;
 }
 
 .type-menu ul li a {

@@ -8,15 +8,23 @@ body {
 }
 .movies-page {
     height: 100vh;
-    overflow-y: auto; /* Habilita rolagem vertical */
+    overflow-y: auto; 
+}
+
+.movies-page::-webkit-scrollbar-track {
+    background-color: #252525;
+}
+.movies-page::-webkit-scrollbar {
+    width: 6px;
+    background: #252525;
+}
+.movies-page::-webkit-scrollbar-thumb {
+    background: #dad7d7;
 }
 
 .menu {
     position: sticky;
-    top: 0;
     z-index: 1000;
     background-color: black;
-    display: flex;
-    justify-content: space-between;
 }
 
