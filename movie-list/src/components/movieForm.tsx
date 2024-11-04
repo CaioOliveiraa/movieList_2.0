@@ -3,13 +3,13 @@ import { addMovie } from '../services/api';
 import '../components/movieForm.css'
 
 interface MovieFormProps {
-    onMovieAdded: () => void; // Adicionando a prop para lidar com a adição de um filme
+    onMovieAdded: () => void; 
 }
 
 const MovieForm: React.FC<MovieFormProps> = ({ onMovieAdded }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [type, setType] = useState<'movie' | 'series' | 'anime' | 'documentary'>('movie'); // Tipo padrão
+    const [type, setType] = useState<'movie' | 'series' | 'anime' | 'documentary'>('movie'); 
     const [message, setMessage] = useState('');
     const [isError, setIsError] = useState(false);
 
@@ -19,6 +19,9 @@ const MovieForm: React.FC<MovieFormProps> = ({ onMovieAdded }) => {
             await addMovie({title, description, type});
             setMessage('Mídia adicionada com sucesso!');
             setIsError(false);
+            setTitle('');
+            setDescription('');
+            setType('movie');
             onMovieAdded();
         } catch (error) {
             console.error('Erro ao adicionar mídia:', error);

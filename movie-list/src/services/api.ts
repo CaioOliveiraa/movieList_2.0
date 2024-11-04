@@ -32,7 +32,6 @@ api.interceptors.response.use(
                         const { accessToken } = refreshResponse.data;
                         localStorage.setItem('accessToken', accessToken);
 
-                        // Atualiza o token no cabeçalho e tenta a requisição novamente
                         api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
                         originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
 
@@ -76,8 +75,7 @@ export const loginUser = async (name: string, password: string): Promise<string>
         throw new Error('Erro ao realizar login');
     }
 };
-
-export const addMovie = async (movie: { title: string, description: string, type: string }) => {
+export const addMovie = async (movie: { title: string, description?: string, type: string }) => {
     try {
         const response = await api.post('/movies/add', movie);
         console.log('Filme adicionado com sucesso!');

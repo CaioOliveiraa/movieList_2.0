@@ -1,7 +1,8 @@
+// src/pages/MoviesPage.tsx
 import React, { useState, useEffect } from 'react';
 import MovieList from '../components/movieList';
 import { getMovies } from '../services/api';
-
+import './styles/moviePage.css';
 
 interface Movie {
     id: string;
@@ -37,11 +38,14 @@ const MoviesPage: React.FC = () => {
         setMovies((prevMovies) => prevMovies.filter(movie => movie.id !== movieId));
     };
 
-
     return (
         <div className="movies-page">
-            <h2>Seus Filmes</h2>
+            <nav className="menu">
+                <a href="/home" className="arrow-button-left">VOLTAR</a>
+                <a href="/addMovie" className="arrow-button-right">ADICIONAR</a>
+            </nav>
             <MovieList movies={movies} onMovieDeleted={handleMovieDeleted} />
+            <footer></footer>
         </div>
     );
 };
