@@ -40,7 +40,7 @@ const AddPage: React.FC = () => {
     return (
         <div>
             <nav className='menu'>
-                <a href="/home" className="arrow-button-left">VOLTAR</a>
+                <a href="/home" className="arrow-button-left">HOME</a>
                 <a href="/movies" className="arrow-button-right">MÍDIAS</a>
             </nav>
             <MovieForm onMovieAdded={handleMovieAdded} />

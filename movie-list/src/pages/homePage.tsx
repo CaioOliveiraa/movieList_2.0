@@ -8,8 +8,8 @@ const HomePage: React.FC = () => {
 
     return (
         <div>
-            <nav style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <button onClick={logout}>Logout</button>
+            <nav className='logout'>
+                <a onClick={logout}>Logout</a>
             </nav>
             <div className='home-page'>
                 <h1>CINEMINHA</h1>

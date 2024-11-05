@@ -41,7 +41,7 @@ const MoviesPage: React.FC = () => {
     return (
         <div className="movies-page">
             <nav className="menu">
-                <a href="/home" className="arrow-button-left">VOLTAR</a>
+                <a href="/home" className="arrow-button-left">HOME</a>
                 <a href="/addMovie" className="arrow-button-right">ADICIONAR</a>
             </nav>
             <MovieList movies={movies} onMovieDeleted={handleMovieDeleted} />

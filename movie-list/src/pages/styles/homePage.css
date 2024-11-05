@@ -3,6 +3,39 @@
     padding: 0;
     
 }
+
+.logout{
+    background-color: #252525;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.logout a{
+    background-color: #a51723;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    display: inline-block; 
+    text-align: center;
+    line-height: 40px; 
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    border: 2px solid ;
+    border-color: #a51723;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.logout a:hover {
+    background-color: #252525;
+    transform: scale(1.1);
+    letter-spacing: 1px;
+}
+
 .home-page{
     height: 100vh;
     display: flex;
@@ -12,7 +45,7 @@
     background-color: #252525;
     background-image: url('../../../public/assets/arquibancada.png');
     background-size: cover;
-    background-position: center;
+    background-position: center 100%; 
 }
 
 .home-page h1{
@@ -23,7 +56,6 @@
 .button-container {
     display: flex;
     gap: 40px; 
-    /* margin-top: 30px; */
 }
 
 .home-page a {
