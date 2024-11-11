@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuração do Axios
 const api = axios.create({
-    baseURL: 'movie-list-2-api.vercel.app',
+    baseURL: 'https://movielist-2-0.onrender.com/',
 });
 
 // Interceptores para lidar com autenticação
