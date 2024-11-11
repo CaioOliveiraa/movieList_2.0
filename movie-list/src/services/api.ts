@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuração do Axios
 const api = axios.create({
-    baseURL: 'https://movie-list-2-2y98796kb-caiooliveiraas-projects.vercel.app/',
+    baseURL: 'https://movie-list-qrwyuts4w-caiooliveiraas-projects.vercel.app/',
 });
 
 // Interceptores para lidar com autenticação
@@ -24,7 +24,7 @@ api.interceptors.response.use(
 
             if (refreshToken) {
                 try {
-                    const refreshResponse = await axios.post('https://movie-list-2-2y98796kb-caiooliveiraas-projects.vercel.app//auth/refresh-token', {
+                    const refreshResponse = await axios.post('https://movie-list-qrwyuts4w-caiooliveiraas-projects.vercel.app/auth/refresh-token', {
                         refreshToken,
                     });
 
