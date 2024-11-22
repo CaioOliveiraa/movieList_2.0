@@ -20,7 +20,18 @@ const LoginPage: React.FC = () => {
     };
 
     return (
-        <AuthForm title="Login" onSubmit={handleLogin} errorMessage={errorMessage} />
+        <div>
+            <AuthForm
+                title="Login"
+                onSubmit={handleLogin}
+                errorMessage={errorMessage}
+                toggleLink={{
+                    text: 'Não possui conta? ',
+                    route: '/register',
+                    linkName: 'Registre-se aqui!'
+                }}
+            />
+        </div>
     );
 };
 

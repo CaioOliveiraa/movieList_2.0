@@ -5,8 +5,13 @@ interface AuthFormProps {
     title: string;
     onSubmit: (name: string, password: string) => void;
     errorMessage?: string;
+    toggleLink:{
+        text: string
+        route: string
+        linkName?: string
+    }
 }
-const AuthForm: React.FC<AuthFormProps> = ({ title, onSubmit, errorMessage }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ title, onSubmit, errorMessage, toggleLink }) => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,25 +22,29 @@ const AuthForm: React.FC<AuthFormProps> = ({ title, onSubmit, errorMessage }) =>
         setPassword('')
     }
     return (
-        <form onSubmit={handleSubmit} className="auth-form">
-            <h2>{title}</h2>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <input
-                type="name"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-            />
-            <input
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-            />
-            <button type="submit">{title}</button>
-        </form>
+        <div>
+            <form onSubmit={handleSubmit} className="auth-form">
+                <h2>{title}</h2>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <input
+                    type="name"
+                    placeholder="Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Senha"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+                <button type="submit">{title}</button>
+                <p>{toggleLink.text}<a href={toggleLink.route}>{toggleLink.linkName}</a></p>
+            </form>
+        </div>
+
     );
 };
 

@@ -15,7 +15,16 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <AuthForm title="Registrar" onSubmit={handleRegister} errorMessage={errorMessage} />
+    <AuthForm 
+    title="Registrar" 
+    onSubmit={handleRegister} 
+    errorMessage={errorMessage}
+    toggleLink={{
+      text: 'ja pssuio uma conta? ',
+      route: '/login',
+      linkName: 'Faça login aqui'
+    }}
+    />
   );
 };
 
